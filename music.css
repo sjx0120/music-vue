@@ -1,0 +1,74 @@
+li{
+    list-style: none;
+    border: 1px solid aquamarine;
+}
+#app{
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    flex: 4;
+    /* background-color: rgb(105, 238, 238); */
+}
+.main{
+    flex: 3;
+    /* background-color: darkgray; */
+}
+.right{
+    flex: 3;
+    /* background-color: darksalmon; */
+}
+footer{
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    /* background-color: rgb(195, 231, 195); */
+}
+a{
+    text-decoration: none;
+}
+.main img{
+    margin:50px 50px;
+    width: 200px;
+    height: 200px;
+}
+.comments img{
+    width: 25px;
+    height: 25px;
+}
+@keyframes Rotate {
+    from {
+      transform: rotateZ(0);
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+  /* 旋转的类名 */
+  .autoRotate {
+    animation-name: Rotate;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+  }
+  .playing{
+    animation-play-state: running;
+  }
+  .video_con{
+    position: fixed;
+    display: flex;
+    width: 400px;
+    height: 400px;
+    left:0;
+    margin: 0 auto;
+    margin-left:-50px; /* 这个是你box宽的一半 */
+    margin-right:-70px; /* 这个是你box高的一半 */
+    z-index: 9999;
+  }
+  .box{
+    width: 100%;
+    background: url("./pics/bg.jpg");
+  }

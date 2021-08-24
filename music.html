@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./music.css">
+</head>
+<body>
+<div class="box">
+   
+     <header><h3 style="color: aqua; font-style: oblique;">玖玖悦听</h3></header>
+    <div id="app" @click="hide">
+       
+        <div class="left">
+            <ul>
+                <li v-for="item in musicList">
+                    <a href="javascript:" @click="playMusic(item.id)">▶</a>
+                    <span>{{ item.name }}</span>
+                    <span v-if="item.mvid!=0" @click="getVideo(item.mvid)">💕</span>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <input v-model="music" type="text" placeholder="搜索音乐" autofocus @keyup.enter="getMusic">
+            <div class="cover" :class="{playing:isplay}">
+               <img :src="picUrl" > 
+            </div>
+            
+        </div>
+        <div class="right">
+            <h5>歌曲评论</h5>
+            <ul class="comments">
+                <li v-for="pl in comments">
+                <img :src="pl.user.avatarUrl">
+                <sapn>{{ pl.user.nickname }}</sapn>
+                <p>{{ pl.content }}</p>
+                <date></date> 
+                </li>
+                
+            </ul>
+        </div>
+        <div class="video_con" v-show="isshow">
+            <video :src="videoUrl" controls autoplay></video>
+            <div class="mask"></div>
+        </div>
+        <footer>
+            <audio @play="play" @pause="pause" autoplay loop controls :src="musicUrl"></audio>
+        </footer>
+    </div>
+         
+</div>
+</body>
+<script src="./music.js"></script>
+</html>
